@@ -1,4 +1,13 @@
 <h1>List of People</h1>
+<div>
+  <label for="fName">First Name: </label>
+  <input id="fName" [(ngModel)]="searchGuest.firstName" placeholder="First Name" />
+</div>
+<div>
+  <label for="lName">Last Name: </label>
+  <input id="lName" [(ngModel)]="searchGuest.lastName" placeholder="Last Name" />
+</div>
+<button (click)="findPerson(searchGuest)">Search</button>
 
 <ul>
   <li *ngFor="let person of guests">
@@ -12,3 +21,7 @@
   </li>
 </ul>
 
+<div *ngIf='guests.length == 0'>
+  Search returned no results.
+  <button (click)="getPeople()">Show All Guests</button>
+</div>

@@ -16,5 +16,23 @@ export class PeopleService {
   getPeople () : Observable<Person[]> {
     return of (this.people);
   }
+
+  findPerson(queryPerson:Person) : Observable<Person[]> {
+    let foundPeople : Person [] = [];
+
+    this.people.forEach( 
+      person => {
+        if (queryPerson.firstName != undefined && queryPerson.firstName.toLowerCase() == person.firstName.toLowerCase() )
+        {
+          foundPeople.push(person);
+        } else if (queryPerson.lastName != undefined && queryPerson.lastName.toLowerCase() == person.lastName.toLowerCase()) {
+          foundPeople.push(person);
+        }
+      }
+    );    
+
+    return of(foundPeople);
+  }
+
   constructor() { }
 }

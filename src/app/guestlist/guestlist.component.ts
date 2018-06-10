@@ -18,6 +18,12 @@ export class GuestlistComponent implements OnInit {
     this.peopleService.getPeople().subscribe(results => this.guests = results);
   }
 
+  findPerson(searchGuest? : Person) {
+    console.log(searchGuest);
+    this.peopleService.findPerson(searchGuest).subscribe(results => this.guests = results);
+    console.log("guests array: " + this.guests.length)
+  }
+
   ngOnInit() {
     this.getPeople();
   }
