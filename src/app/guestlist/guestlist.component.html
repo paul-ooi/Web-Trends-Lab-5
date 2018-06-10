@@ -1,0 +1,14 @@
+<h1>List of People</h1>
+
+<ul>
+  <li *ngFor="let person of guests">
+    <h2>{{ person.firstName }} {{ person.lastName }}</h2>
+    <div>
+      Age: {{ person.getAge() }}
+    </div>
+    <div>
+      Date of Birth: {{ person.dateOfBirth | date: 'MMMM dd, yyyy' }}
+    </div>
+  </li>
+</ul>
+
