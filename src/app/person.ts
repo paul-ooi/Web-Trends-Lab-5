@@ -13,11 +13,10 @@ export class Person {
 
     getAge() : number {
         let today : Date = new Date();
-        let age : number = today.getUTCFullYear() - this.dateOfBirth.getUTCFullYear();
+        let age : number = today.getFullYear() - this.dateOfBirth.getFullYear();
 
         //check if today is before the birthday for current year
-        if ( (today.getUTCMonth() < this.dateOfBirth.getUTCMonth() ) || 
-        ( (today.getUTCMonth() === this.dateOfBirth.getUTCMonth()) && ( today.getUTCDate() < this.dateOfBirth.getUTCDate() )) ) {
+        if ( (today.getMonth() <= this.dateOfBirth.getMonth()) && ( today.getDate() < this.dateOfBirth.getDate() ) ) {
             age--;
         }
 
